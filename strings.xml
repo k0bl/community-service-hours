@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages>
+  <message id="practice-name-info">Doctorson Nerology Associates, Inc</message>
+  <message id="practice-zip-info">90814</message>
+  <message id="practice-drfirstname-info">John</message>
+  <message id="practice-drlastname-info">Doctorson</message>
+  <message id="practice-npi-info">1234567890</message>
+  <message id="practice-email-info">john@doctorsoninc.com</message>
+  <message id="practice-specialty-info">Neurology</message>
+
+</messages>

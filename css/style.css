@@ -1,0 +1,116 @@
+.modal {
+	width: 900px;
+}
+.final-total {
+	float: right;
+}
+.app-left-menu {
+	width: 150px;
+}
+.app-menu-container {
+	width: 150px;
+}
+.app-menu-container > ul > li > a {
+	width: 100px;
+}
+.left-menu > li > a {
+	width: 150px;
+	border: 1px solid;
+}
+.nav-pills > li > a {
+	width: 150px;
+	border: 1px solid;
+}
+.toplogo > h2 {
+	font-size: 30.5px;
+	font-family: Yellowtail, cursive;
+}
+.app-main-stack {
+	padding-left: 25px;
+}
+.Wt-auth-logged-in {
+    position: fixed;
+    margin-left: 778px;
+	top: 3px;
+}
+.hours-result > table > tbody > tr > td > span {
+	float: right;
+}
+.hours-result > table > thead > tr > th > span {
+	float: right;
+}
+.hours-result > h4 {
+	float: right;
+}
+.modal {
+	max-width: 900px;
+	min-width: 750px;	
+}
+.refdiagleft {
+	max-width: 400px;
+}
+.refdiagright {
+	max-width: 400px;
+}
+.attcont {
+	max-width: 850px;
+}
+.modal-header{
+	max-width: 900px;
+	min-width: 750px;
+}
+.modal-body {
+	max-width: 900px;
+	min-width: 750px;
+	max-height: 1000px;
+}
+.modal-footer {
+	max-width: 900px;
+	min-width: 750px;
+}
+.btn-insurance {
+	margin-right: 0;
+	max-width: 300px;
+	min-width: 300px;
+}
+.btn-epworth {
+	margin-right: 0;
+	max-width: 300px;
+	min-width: 300px
+}
+.btn-referral {
+	margin-right: 0;
+	max-width: 300px;
+	min-width: 300px;
+}
+.sig-lbl {
+  max-height: 15px;
+}
+.h1 {
+	color: #5F849F;
+}
+.h2 {
+	color: #5F849F;
+}
+.h3 {
+	color: #5F849F;
+}
+
+.yellow-box {
+    background-color: #ffffb4;
+    border: 1px solid black;
+    margin-bottom: 1ex;
+    margin-top: 1ex;
+}
+.green-box {
+    background-color: #c4ffb4;
+    min-height: 30px;
+    padding: 3px;
+    text-align: center;
+}
+.blue-box {
+    background-color: #65dae8;
+    min-height: 30px;
+    padding: 3px;
+    text-align: center;
+}	

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns:if="Wt.WTemplate.conditions">
+  <message id="template.registration">
+    <div class="Wt-form Wt-auth-registration">
+      <h2>${tr:Wt.Auth.registration-form-title}</h2>
+      <p>${tr:Wt.Auth.registration-form-info}</p>
+
+      ${password-description}
+
+      <div class="Wt-fields">
+        ${<if:user-name>}
+          <label for="${id:user-name}">${user-name-label}
+            ${user-name-info class="Wt-info"}
+            ${confirm-is-you class="Wt-info"}
+          </label>
+          ${user-name}
+        ${</if:user-name>}
+
+        ${<if:choose-password>}
+          <label for="${id:choose-password}">${tr:Wt.Auth.choose-password}
+            ${choose-password-info class="Wt-info"}
+          </label>
+          ${choose-password}
+
+          <label for="${id:repeat-password}">${tr:Wt.Auth.repeat-password}
+            ${repeat-password-info class="Wt-info"}
+          </label>
+          ${repeat-password}
+        ${</if:choose-password>}
+
+        ${<if:email>}
+          <label for="${id:email}">${tr:Wt.Auth.email}
+            ${email-info class="Wt-info"}
+          </label>
+          ${email}
+        ${</if:email>}
+
+
+  <label for="${id:student-firstname}">Student First Name:
+  </label>
+  ${student-firstname}
+
+  <label for="${id:student-lastname}">Student Last Name:
+  </label>
+  ${student-lastname}
+
+      </div>
+
+      <div class="Wt-buttons">
+        ${ok-button} ${cancel-button}
+      </div>
+    </div>
+  </message>
+
+  <message id="template.referral">
+    <div class="container">
+      <div class="row">
+        <p><img align="left" src="images/statlogo.png"></img>
+        <img align="right" src="images/aasm.png"></img></p>        
+      </div>
+      <h1 align="center">Referral Form</h1>
+      <p align="center">PH: (562) 622-1002 | FAX:(562) 622-1058</p>
+      <br />
+      <div class="container">
+          <h4>____________________________________________________________________</h4>
+          <p style="padding: 2px; margin: 2px;">Practice Name: <strong>${pname}</strong></p>
+          <p style="padding: 2px; margin: 2px;">Dr's Name: <strong>${pdrfirst} ${pdrlast}</strong></p>
+          <p style="padding: 2px; margin: 2px;">Dr's Specialty: <strong>${pspec}</strong></p>
+          <p style="padding: 2px; margin: 2px;">Practice NPI: <strong>${pnpi}</strong></p> 
+          <p style="padding: 2px; margin: 2px;">Practice Email: <strong>${pemail}</strong></p>
+          <p style="padding: 2px; margin: 2px;">Practice Zip Code: <strong>${pzip}</strong></p>
+          <p style="padding: 2px; margin: 2px;">Patient First Name: <strong>${ptfirst}</strong></p>
+          <p style="padding: 2px; margin: 2px;">Patient Last Name: <strong>${ptlast}</strong></p>
+          <p style="padding: 2px; margin: 2px;">Patient Address:</p>
+          <p style="padding: 2px; margin: 2px;"><strong>${ptaddr1}</strong></p>
+          <p style="padding: 2px; margin: 2px;"><strong>${ptaddr2}</strong></p>
+          <p style="padding: 2px; margin: 2px;">Patient City: <strong>${ptcity}</strong></p>
+          <p style="padding: 2px; margin: 2px;">Patient Zip: <strong>${ptzip}</strong></p>
+          <p style="padding: 2px; margin: 2px;">Patient Home Phone: <strong>${pthome}</strong></p>
+          <p style="padding: 2px; margin: 2px;">Patient Cell Phone: <strong>${ptcell}</strong></p>
+          <p style="padding: 2px; margin: 2px;">Patient Date of Birth: <strong>${ptdob}</strong></p>
+          <p style="padding: 2px; margin: 2px;">Patient Gender: <strong>${ptgender}</strong></p>
+          <p style="padding: 2px; margin: 2px;">Patient Diagnostic: <strong>${rdiag}</strong></p>
+          <p style="padding: 2px; margin: 2px;">Patient Overnight Study: <strong>${rover}</strong></p>
+          <p style="padding: 2px; margin: 2px;">Home Sleep Study: <strong>${rhome}</strong></p>
+          <p style="padding: 2px; margin: 2px;">Other Sleep Study: <strong>${rother}</strong></p>
+          <p style="padding: 2px; margin: 2px;">Consultation Authorization: <strong>${rauth}</strong></p>
+          <h4>SLEEP STUDY ORDER WAS ELECTRONICALLY SIGNED</h4>
+          <p style="padding: 2px; margin: 2px;">Dr's Full Name (Hand Typed): ${signame}</p>
+          <p style="padding: 2px; margin: 2px;">Dr's Email (Hand Typed): ${sigemail}</p>
+          <p style="padding: 2px; margin: 2px;">Hand-Selected Date: ${sigdate}</p>
+        </div>
+    </div>
+  </message>
+
+  
+</messages>
