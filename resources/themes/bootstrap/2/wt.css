@@ -347,6 +347,11 @@
   background-repeat: no-repeat;
   background-position: right top;
   padding-right: 40px;
+}.Wt-timeedit {
+  background-image: url('time-edit-button.png');
+  background-repeat: no-repeat;
+  background-position: right top;
+  padding-right: 40px;
 }
 .Wt-dateedit:hover {
   cursor: default;

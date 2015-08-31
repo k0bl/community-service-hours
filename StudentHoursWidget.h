@@ -21,12 +21,14 @@
 #include <boost/uuid/uuid_generators.hpp> // generators
 #include <boost/uuid/uuid_io.hpp>         // streaming operators etc.
 
+#include <Wt/WStackedWidget>
 #include <Wt/WContainerWidget>
 #include <Wt/WString>
 #include <Wt/WDate>
 #include <Wt/Dbo/Dbo>
 #include <Wt/Dbo/backend/Sqlite3>
 #include "StudentSession.h"
+#include "RecentHoursWidget.h"
 
 using namespace Wt;
 using namespace Wt::Dbo;
@@ -49,6 +51,7 @@ private:
 	}
 
 	StudentSession *session_;
+	RecentHoursWidget *resultWidget;
 
 
 public:
@@ -58,6 +61,7 @@ public:
 	Wt::WLineEdit *enteredHours_;
 	Wt::WLineEdit *hoursDescription_;
 
+	void showResult();
 	void hoursList();
 	void addHoursDialog();
 	void calcHours();
@@ -85,7 +89,7 @@ public:
 	Wt::WText *staticHours_;
 	Wt::WText *hoursSent_;
 
-
+	Wt::WStackedWidget *resultStack_;
 
 };
 

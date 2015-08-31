@@ -36,7 +36,7 @@ namespace {
 void StudentSession::configureAuth()
 {
 	myAuthService.setAuthTokensEnabled(true, "logincookie");
-	myAuthService.setEmailVerificationEnabled(false);
+	myAuthService.setEmailVerificationEnabled(true);
 
 	Wt::Auth::PasswordVerifier *verifier = new Wt::Auth::PasswordVerifier();
 	verifier->addHashFunction(new Wt::Auth::BCryptHashFunction(7));

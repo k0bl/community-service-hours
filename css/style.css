@@ -10,6 +10,16 @@
 .app-menu-container {
 	width: 150px;
 }
+.print-de1 {
+	padding-right: 10px;
+}
+.print-de2 {
+	margin-left: 10px;
+}
+.print-button {
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
 .app-menu-container > ul > li > a {
 	width: 100px;
 }
@@ -29,7 +39,7 @@
 	padding-left: 25px;
 }
 .Wt-auth-logged-in {
-    position: fixed;
+    position: absolute;
     margin-left: 778px;
 	top: 3px;
 }

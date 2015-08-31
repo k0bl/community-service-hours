@@ -52,44 +52,51 @@
     </div>
   </message>
 
-  <message id="template.referral">
-    <div class="container">
-      <div class="row">
-        <p><img align="left" src="images/statlogo.png"></img>
-        <img align="right" src="images/aasm.png"></img></p>        
-      </div>
-      <h1 align="center">Referral Form</h1>
-      <p align="center">PH: (562) 622-1002 | FAX:(562) 622-1058</p>
-      <br />
-      <div class="container">
-          <h4>____________________________________________________________________</h4>
-          <p style="padding: 2px; margin: 2px;">Practice Name: <strong>${pname}</strong></p>
-          <p style="padding: 2px; margin: 2px;">Dr's Name: <strong>${pdrfirst} ${pdrlast}</strong></p>
-          <p style="padding: 2px; margin: 2px;">Dr's Specialty: <strong>${pspec}</strong></p>
-          <p style="padding: 2px; margin: 2px;">Practice NPI: <strong>${pnpi}</strong></p> 
-          <p style="padding: 2px; margin: 2px;">Practice Email: <strong>${pemail}</strong></p>
-          <p style="padding: 2px; margin: 2px;">Practice Zip Code: <strong>${pzip}</strong></p>
-          <p style="padding: 2px; margin: 2px;">Patient First Name: <strong>${ptfirst}</strong></p>
-          <p style="padding: 2px; margin: 2px;">Patient Last Name: <strong>${ptlast}</strong></p>
-          <p style="padding: 2px; margin: 2px;">Patient Address:</p>
-          <p style="padding: 2px; margin: 2px;"><strong>${ptaddr1}</strong></p>
-          <p style="padding: 2px; margin: 2px;"><strong>${ptaddr2}</strong></p>
-          <p style="padding: 2px; margin: 2px;">Patient City: <strong>${ptcity}</strong></p>
-          <p style="padding: 2px; margin: 2px;">Patient Zip: <strong>${ptzip}</strong></p>
-          <p style="padding: 2px; margin: 2px;">Patient Home Phone: <strong>${pthome}</strong></p>
-          <p style="padding: 2px; margin: 2px;">Patient Cell Phone: <strong>${ptcell}</strong></p>
-          <p style="padding: 2px; margin: 2px;">Patient Date of Birth: <strong>${ptdob}</strong></p>
-          <p style="padding: 2px; margin: 2px;">Patient Gender: <strong>${ptgender}</strong></p>
-          <p style="padding: 2px; margin: 2px;">Patient Diagnostic: <strong>${rdiag}</strong></p>
-          <p style="padding: 2px; margin: 2px;">Patient Overnight Study: <strong>${rover}</strong></p>
-          <p style="padding: 2px; margin: 2px;">Home Sleep Study: <strong>${rhome}</strong></p>
-          <p style="padding: 2px; margin: 2px;">Other Sleep Study: <strong>${rother}</strong></p>
-          <p style="padding: 2px; margin: 2px;">Consultation Authorization: <strong>${rauth}</strong></p>
-          <h4>SLEEP STUDY ORDER WAS ELECTRONICALLY SIGNED</h4>
-          <p style="padding: 2px; margin: 2px;">Dr's Full Name (Hand Typed): ${signame}</p>
-          <p style="padding: 2px; margin: 2px;">Dr's Email (Hand Typed): ${sigemail}</p>
-          <p style="padding: 2px; margin: 2px;">Hand-Selected Date: ${sigdate}</p>
-        </div>
+  <message id="template.table">
+   <div>
+      <style>
+        span.special {
+          color: #FF0000;
+          font-weight: bold;
+        }
+
+        #main_table {
+          font-size: 8pt;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        #main_table .special {
+          color: #FF0000;
+        }
+
+        #main_table th {
+          border-bottom: 1px solid black;
+        }
+      </style>
+      <p>
+        <table id="main_table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Start Time</th>
+              <th>End Time</th>
+              <th>Hours Worked</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>${hours-date}</td>
+              <td>${hours-desc}</td>
+              <td>${hours-start}</td>
+              <td>${hours-end}</td>
+              <td>${hours-total}</td>
+            </tr>
+          </tbody>
+        </table>
+      </p>
+      ${final-total}
     </div>
   </message>
 

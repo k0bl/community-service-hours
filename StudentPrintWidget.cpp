@@ -130,26 +130,34 @@ void StudentPrintWidget::hoursList()
 	Wt::WTemplate *form = new Wt::WTemplate(Wt::WString::tr("dateEdit-template"));
 	form->addFunction("id", &Wt::WTemplate::Functions::id);
 
+	Wt::WText *delabel = new Wt::WText("Please select the date range for the hours report.");
+	container->addWidget(delabel);
+	container->addWidget(new Wt::WBreak());
+	container->addWidget(new Wt::WBreak());
 	Wt::WDateEdit *de1 = new Wt::WDateEdit();
 	form->bindWidget("from", de1);
 	de1->setFormat("MM/dd/yyyy"); // Apply a different date format.
+	de1->setPlaceholderText("Start Date");
+	de1->setStyleClass("print-de1");
 	container->addWidget(de1);
-
 
 	Wt::WDateEdit *de2 = new Wt::WDateEdit();
 	form->bindWidget("to", de2);
 	de2->setFormat("MM/dd/yyyy"); // Apply a different date format.
+	de2->setPlaceholderText("End Date");
+	de2->setStyleClass("print-de2");
 	container->addWidget(de2);
 
-	Wt::WPushButton *button = new Wt::WPushButton("Save");
+	Wt::WPushButton *button = new Wt::WPushButton("Get Hours");
 	form->bindWidget("save", button);
+	button->setStyleClass("print-button");
 	container->addWidget(button);
 	
 	Wt::WText *out = new Wt::WText();
 	form->bindWidget("out", out);
 	
 	resultStack_ = new Wt::WStackedWidget(container);
-	
+
 	container->addWidget(out);
 	button->clicked().connect(std::bind([=] () {	
 		Wt::WDate start;

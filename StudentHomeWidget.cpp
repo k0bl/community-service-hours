@@ -25,7 +25,7 @@ StudentHomeWidget::StudentHomeWidget(StudentSession *session, WContainerWidget *
 		Wt::log("notice") << "(The student: " << studentFn << "is adding new time.)";
 		
 		Wt::log("notice") << "Student user switched routes to /home.";
-		addWidget(new Wt::WText("<h3>Welcome to the Student Portal for KCPA</h3>"));
+		addWidget(new Wt::WText("<h3>Welcome to the Volunteer Hours Application for KCPA</h3>"));
 		addWidget(new Wt::WText("<h4>Click a link on the left to get started.</h4>"));		
 
 }

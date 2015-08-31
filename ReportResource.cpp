@@ -23,7 +23,7 @@ public:
 		tem(t)
 	{
 		
-		suggestFileName("referral.pdf");
+		suggestFileName("report.pdf");
 		
 	}
 

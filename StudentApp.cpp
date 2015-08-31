@@ -77,7 +77,7 @@ StudentApplication::StudentApplication(const Wt::WEnvironment& env)
 	root()->addWidget(links_);
 
 	Wt::WNavigationBar *navigation = new Wt::WNavigationBar(links_);
-	navigation->setTitle("Community Service Hours",
+	navigation->setTitle("Volunteer Hours Application",
 		"https://127.0.0.1/students/home");
 	navigation->setResponsive(true);	
 	navigation->setStyleClass("top-navigation");

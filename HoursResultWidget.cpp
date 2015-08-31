@@ -139,7 +139,8 @@ void HoursResultWidget::showRange(Wt::WDate& startDate, Wt::WDate& endDate)
 	table->elementAt(0, 2)->addWidget(new Wt::WText("Start Time"));
 	table->elementAt(0, 3)->addWidget(new Wt::WText("End Time"));
 	table->elementAt(0, 4)->addWidget(new Wt::WText("Hours Worked"));
-
+	
+	
 	int row = 1;
 	for (Hourss::const_iterator i = hourss.begin(); i != hourss.end(); ++i, ++row)
 	{
@@ -147,15 +148,14 @@ void HoursResultWidget::showRange(Wt::WDate& startDate, Wt::WDate& endDate)
 			new Wt::WText((*i)->hoursDate_.toString("MM/dd/yyyy"), table->elementAt(row, 0)),
 			new Wt::WText((*i)->hoursDescription_, table->elementAt(row, 1)),
 			new Wt::WText((*i)->hoursStartTime_, table->elementAt(row, 2)),
-			new Wt::WText((*i)->hoursEndTime_, table->elementAt(row, 3)),
+			new Wt::WText((*i)->hoursEndTime_, table->elementAt(row, 3));
 			new Wt::WText((*i)->totalHours_, table->elementAt(row, 4));
-	
+
+			
 	}
 	
 	transaction.commit();
-	
-
-	
+		
 	dbo::Transaction totaltrans(dbsession);
 
 	Wt::log("notice") << "hours is being queried for student hours by id";
@@ -230,22 +230,18 @@ void HoursResultWidget::showRange(Wt::WDate& startDate, Wt::WDate& endDate)
 
 	result->addWidget(sig);
 
-
-
-	Wt::WTemplate *t = new Wt::WTemplate(result);
-	t->bindWidget("table", table);
-	t->bindWidget("finaltotal", finaltotal);
-
 	std::ostringstream r;
-	t->renderTemplate(r);
+	result->htmlText(r);
 	Wt::WString s = r.str();
 
 	Wt::WResource *pdf = new ReportResource(s, this);
 
-	Wt::WPushButton *button = new Wt::WPushButton("Download Referral PDF");
+	Wt::WPushButton *button = new Wt::WPushButton("Download Report PDF");
 	button->setLink(pdf);
 	
 	container->addWidget(result);
+	container->addWidget(new Wt::WBreak());
+	container->addWidget(new Wt::WBreak());
 	container->addWidget(button);
 	addWidget(container);
 
