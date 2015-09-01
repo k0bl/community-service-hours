@@ -1,0 +1,12 @@
+<server>
+    <application-settings location="*">
+	<properties>
+	    <property name="auth-mail-sender-name">
+	      Volunteer Application
+	    </property>
+	    <property name="auth-mail-sender-address">
+	      noreply@kcpanh.org
+	    </property>
+	</properties>
+    </application-settings>
+</server>

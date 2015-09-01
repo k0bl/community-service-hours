@@ -44,7 +44,8 @@ StudentApplication::StudentApplication(const Wt::WEnvironment& env)
 	session_.login().changed().connect(this, &StudentApplication::authEvent);
 	messageResourceBundle().use("templates");
 	messageResourceBundle().use("composer");
-	messageResourceBundle().use("strings");
+	messageResourceBundle().use("strings");	
+	messageResourceBundle().use("auth_strings");
 	root()->addStyleClass("container");
 	setTheme(new Wt::WBootstrapTheme());
 
