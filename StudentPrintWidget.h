@@ -25,7 +25,7 @@
 #include <Wt/WString>
 
 #include <Wt/Dbo/Dbo>
-#include <Wt/Dbo/backend/Sqlite3>
+#include <Wt/Dbo/backend/Postgres>
 #include "StudentSession.h"
 #include "HoursResultWidget.h"
 
@@ -37,10 +37,12 @@ class StudentPrintWidget : public Wt::WContainerWidget
 {
 
 public:
-	StudentPrintWidget(StudentSession *session, Wt::WContainerWidget *parent = 0);
+	StudentPrintWidget(const char *conninfo, StudentSession *session, Wt::WContainerWidget *parent = 0);
 	
 	Wt::Dbo::Session dbsession;
-	Wt::Dbo::backend::Sqlite3 sqlite3_;
+	Wt::Dbo::backend::Postgres pg_;
+	const char *conninfo_;
+
 
 private:
 	Wt::WString uuid() {

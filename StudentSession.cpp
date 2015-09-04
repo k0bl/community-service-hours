@@ -15,7 +15,7 @@
 #include <Wt/Dbo/collection>
 #include <Wt/Dbo/Dbo>
 #include <Wt/Dbo/Session>
-#include <Wt/Dbo/backend/Sqlite3>
+#include <Wt/Dbo/backend/Postgres>
 #include <string>
 
 #include "Wt/Auth/AuthService"
@@ -46,8 +46,8 @@ void StudentSession::configureAuth()
 
 }
 
-StudentSession::StudentSession(const std::string& sqliteDb)
-	: connection_(sqliteDb)
+StudentSession::StudentSession(const std::string& db)
+	: connection_(db)
 {
 	setConnection(connection_);
 	

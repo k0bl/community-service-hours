@@ -18,7 +18,7 @@
 #include "Wt/Auth/Login"
 #include <Wt/Dbo/Session>
 #include <Wt/Dbo/ptr>
-#include <Wt/Dbo/backend/Sqlite3>
+#include <Wt/Dbo/backend/Postgres>
 #include "Student.h"
 
 namespace dbo = Wt::Dbo;
@@ -30,7 +30,7 @@ class StudentSession : public dbo::Session
 {
 public:
 	static void configureAuth();
-	StudentSession(const std::string& sqliteDb);
+	StudentSession(const std::string& db);
 
 	dbo::ptr<Student> student();
 	dbo::weak_ptr<Student> wstudent();
@@ -49,7 +49,7 @@ public:
 	
 
 private:
-	dbo::backend::Sqlite3 connection_;
+	dbo::backend::Postgres connection_;
 	StudentDatabase *students_;
 	Wt::Auth::Login login_;
 

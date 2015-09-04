@@ -26,6 +26,7 @@
 
 #include <Wt/Dbo/Dbo>
 #include <Wt/Dbo/backend/Sqlite3>
+#include <Wt/Dbo/backend/Postgres>
 #include "StudentSession.h"
 
 using namespace Wt;
@@ -36,10 +37,10 @@ class HoursResultWidget : public Wt::WContainerWidget
 {
 
 public:
-	HoursResultWidget(StudentSession *session, Wt::WContainerWidget *parent = 0);
+	HoursResultWidget(const char *conninfo, StudentSession *session, Wt::WContainerWidget *parent = 0);
 	
 	Wt::Dbo::Session dbsession;
-	Wt::Dbo::backend::Sqlite3 sqlite3_;
+	Wt::Dbo::backend::Postgres pg_;
 
 private:
 	Wt::WString uuid() {
@@ -49,8 +50,7 @@ private:
 	}
 
 	StudentSession *session_;
-
-
+	
 public:
 
 

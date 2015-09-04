@@ -37,9 +37,11 @@
 
 using namespace Wt;
 
+const char *conninfo = "hostaddr = 127.0.0.1 port = 5432 user = servicehours dbname = servicehours password = Falcon1337";
+
 StudentApplication::StudentApplication(const Wt::WEnvironment& env)
 	: Wt::WApplication(env),
-	session_(appRoot() + "studentauth.db")
+	session_(conninfo)
 {
 	session_.login().changed().connect(this, &StudentApplication::authEvent);
 	messageResourceBundle().use("templates");
@@ -174,7 +176,7 @@ void StudentApplication::showHome()
 void StudentApplication::showHours()
 {
 	mainStack_->clear();
-	hours_ = new StudentHoursWidget(&session_, mainStack_);
+	hours_ = new StudentHoursWidget(conninfo, &session_, mainStack_);
 	hours_->hoursList();
 	mainStack_->setCurrentWidget(hours_);
 }
@@ -182,7 +184,7 @@ void StudentApplication::showHours()
 void StudentApplication::showPrint()
 {
 	mainStack_->clear();
-	print_ = new StudentPrintWidget(&session_, mainStack_);
+	print_ = new StudentPrintWidget(conninfo, &session_, mainStack_);
 	print_->hoursList();
 	mainStack_->setCurrentWidget(print_);
 }

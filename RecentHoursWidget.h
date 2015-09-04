@@ -36,10 +36,10 @@ class RecentHoursWidget : public Wt::WContainerWidget
 {
 
 public:
-	RecentHoursWidget(StudentSession *session, Wt::WContainerWidget *parent = 0);
+	RecentHoursWidget(const char *conninfo, StudentSession *session, Wt::WContainerWidget *parent = 0);
 	
 	Wt::Dbo::Session dbsession;
-	Wt::Dbo::backend::Sqlite3 sqlite3_;
+	Wt::Dbo::backend::Postgres pg_;
 
 private:
 	Wt::WString uuid() {

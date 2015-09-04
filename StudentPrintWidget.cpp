@@ -58,7 +58,7 @@
 #include <Wt/Dbo/collection>
 #include <Wt/Dbo/Dbo>
 #include <Wt/Dbo/Session>
-#include <Wt/Dbo/backend/Sqlite3>
+#include <Wt/Dbo/backend/Postgres>
 #include <string>
 
 //other header files
@@ -91,14 +91,16 @@ namespace StudentHours{
 	};
 }
 
-StudentPrintWidget::StudentPrintWidget(StudentSession *session, WContainerWidget *parent) :
+
+StudentPrintWidget::StudentPrintWidget(const char *conninfo, StudentSession *session, WContainerWidget *parent) :
 WContainerWidget(parent),
-sqlite3_(Wt::WApplication::appRoot() + "hours.db"),
+conninfo_(conninfo),
+pg_(conninfo),
 session_(session)
 
 {
-	dbsession.setConnection(sqlite3_);
-	sqlite3_.setProperty("show-queries", "true");
+	dbsession.setConnection(pg_);
+	pg_.setProperty("show-queries", "true");
 	dbsession.mapClass<Hours>("Hours");
 
 	Wt::log("notice") << "session is being queried for student first name";
@@ -175,7 +177,7 @@ void StudentPrintWidget::hoursList()
 void StudentPrintWidget::showResult(Wt::WDate& startDate, Wt::WDate& endDate)
 {
 	resultStack_->clear();
-	resultWidget = new HoursResultWidget(session_, resultStack_);
+	resultWidget = new HoursResultWidget(conninfo_, session_, resultStack_);
 	resultWidget->showRange(startDate, endDate);
 
 	resultStack_->setCurrentWidget(resultWidget);

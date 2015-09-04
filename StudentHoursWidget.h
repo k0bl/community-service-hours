@@ -38,10 +38,10 @@ class StudentHoursWidget : public Wt::WContainerWidget
 {
 
 public:
-	StudentHoursWidget(StudentSession *session, Wt::WContainerWidget *parent = 0);
+	StudentHoursWidget(const char *conninfo, StudentSession *session, Wt::WContainerWidget *parent = 0);
 	
 	Wt::Dbo::Session dbsession;
-	Wt::Dbo::backend::Sqlite3 sqlite3_;
+	Wt::Dbo::backend::Postgres pg_;
 
 private:
 	Wt::WString uuid() {
@@ -52,6 +52,7 @@ private:
 
 	StudentSession *session_;
 	RecentHoursWidget *resultWidget;
+	const char *conninfo_;
 
 
 public:

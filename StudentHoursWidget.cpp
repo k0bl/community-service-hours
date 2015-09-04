@@ -56,7 +56,7 @@
 #include <Wt/Dbo/collection>
 #include <Wt/Dbo/Dbo>
 #include <Wt/Dbo/Session>
-#include <Wt/Dbo/backend/Sqlite3>
+#include <Wt/Dbo/backend/Postgres>
 #include <string>
 
 //other header files
@@ -89,14 +89,15 @@ namespace StudentHours{
 	};
 }
 
-StudentHoursWidget::StudentHoursWidget(StudentSession *session, WContainerWidget *parent) :
+StudentHoursWidget::StudentHoursWidget(const char *conninfo, StudentSession *session, WContainerWidget *parent) :
 WContainerWidget(parent),
-sqlite3_(Wt::WApplication::appRoot() + "hours.db"),
+conninfo_(conninfo),
+pg_(conninfo),
 session_(session)
 
 {
-	dbsession.setConnection(sqlite3_);
-	sqlite3_.setProperty("show-queries", "true");
+	dbsession.setConnection(pg_);
+	pg_.setProperty("show-queries", "true");
 	dbsession.mapClass<Hours>("Hours");
 
 	Wt::log("notice") << "session is being queried for student first name";
@@ -138,7 +139,7 @@ void StudentHoursWidget::hoursList()
 void StudentHoursWidget::showResult()
 {
 	resultStack_->clear();
-	resultWidget = new RecentHoursWidget(session_, resultStack_);
+	resultWidget = new RecentHoursWidget(conninfo_, session_, resultStack_);
 	resultWidget->showHours();
 
 	resultStack_->setCurrentWidget(resultWidget);
@@ -206,7 +207,7 @@ void StudentHoursWidget::addHoursDialog()
 
 	Wt::WPushButton *checkTime = new Wt::WPushButton("Calculate Time");
 	form->bindWidget("save", checkTime);
-	
+
 	vbox1->addWidget(checkTime);
 
 	Wt::WText *timeOut = new Wt::WText();

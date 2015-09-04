@@ -7,24 +7,17 @@
 */
 #include <stdlib.h>
 #include <Wt/WServer>
-#include "UserSession.h"
 #include "StudentSession.h"
-#include "AdminApp.h"
 #include "StudentApp.h"
 
 int main(int argc, char **argv)
 {
 	
+	
 	try{
 		//starts wserver instance, adds entry points for application
 		WServer server(argv[0]);
 		server.setServerConfiguration(argc, argv, WTHTTP_CONFIGURATION);
-		
-		std::cout << "Adding admin auth entry point /admin";
-		server.addEntryPoint(Application,
-			boost::bind(&createAdminApplication, _1),
-			"/staff");
-		UserSession::configureAuth();
 		
 		std::cout << "Adding student portal entry point ";
 		server.addEntryPoint(Application,
